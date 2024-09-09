@@ -1,5 +1,5 @@
 # JobHunter-CZ
-JobHunter CZ je komplexní webová aplikace pro hledání práce v České republice. Nabízí uživatelům snadný přístup k různým pracovním portálům, motivační podporu a užitečné nástroje pro efektivní hledání zaměstnání.
+JobHunter CZ je webová aplikace pro hledání práce v České republice. Nabízí uživatelům snadný přístup k různým pracovním portálům, motivační podporu a užitečné nástroje pro efektivní hledání zaměstnání.
 **Popis**
 Tato single-page aplikace je navržena tak, aby zjednodušila proces hledání práce. Kombinuje vyhledávání napříč populárními českými pracovními portály s motivačními prvky a praktickými nástroji pro sledování vašeho postupu při hledání zaměstnání.
 Klíčové funkce
