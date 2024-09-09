@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hledání práce - Nejlepší weby</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Hledání práce - Nejlepší weby</h1>
+        
+        <div id="motivational-quote" class="mb-8 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded">
+            <!-- Motivační citát bude vložen pomocí JavaScriptu -->
+        </div>
+
+        <div class="mb-8 bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded" role="alert">
+            <p class="font-bold">Upozornění</p>
+            <p>Vyhledávání probíhá pouze na portálech Atmoskop, Jobs.cz, Prace.cz a StartupJobs. Odkazy na další užitečné weby najdete níže.</p>
+        </div>
+
+        <div class="mb-4">
+            <form id="search-form" class="flex flex-col md:flex-row gap-4">
+                <div class="flex-grow flex flex-col md:flex-row gap-2">
+                    <input type="text" id="search-input" placeholder="Zadejte klíčové slovo nebo pozici" class="flex-grow p-2 border rounded-lg">
+                    <select id="field-select" class="p-2 border rounded-lg">
+                        <option value="">Vyberte obor</option>
+                        <option value="IT">IT</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Lidské zdroje">Lidské zdroje</option>
+                        <option value="Obchod">Obchod</option>
+                        <option value="Administrativa">Administrativa</option>
+                        <option value="Výroba">Výroba</option>
+                        <option value="Logistika">Logistika</option>
+                        <option value="Zdravotnictví">Zdravotnictví</option>
+                        <option value="Vzdělávání">Vzdělávání</option>
+                        <option value="Stavebnictví">Stavebnictví</option>
+                        <option value="Gastronomie">Gastronomie</option>
+                        <option value="Právo">Právo</option>
+                        <option value="Umění a kultura">Umění a kultura</option>
+                        <option value="Věda a výzkum">Věda a výzkum</option>
+                        <option value="Automobilový průmysl">Automobilový průmysl</option>
+                        <option value="Telekomunikace">Telekomunikace</option>
+                        <option value="Cestovní ruch">Cestovní ruch</option>
+                        <option value="Média">Média</option>
+                        <option value="Zemědělství">Zemědělství</option>
+                    </select>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">Hledat na vybraných portálech</button>
+            </form>
+        </div>
+
+        <div class="mb-8 flex gap-4">
+            <button id="remote-btn" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">Remote</button>
+            <button id="hybrid-btn" class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition-colors">Hybrid</button>
+            <button id="clear-btn" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors">Vymazat</button>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Historie vyhledávání</h2>
+            <ul id="search-history" class="list-disc pl-5"></ul>
+        </div>
+
+        <div id="job-sites" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+                <img src="https://www.atmoskop.cz/favicon.ico" alt="Atmoskop favicon" class="inline-block w-6 h-6 mr-2">
+                <a href="https://www.atmoskop.cz/" target="_blank" class="text-blue-600 hover:underline" data-search-url="https://www.atmoskop.cz/prehled-pracovnich-pozic?keyword%5B%5D=">Atmoskop</a>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+                <img src="https://www.jobs.cz/favicon.ico" alt="Jobs.cz favicon" class="inline-block w-6 h-6 mr-2">
+                <a href="https://www.jobs.cz/" target="_blank" class="text-blue-600 hover:underline" data-search-url="https://www.jobs.cz/prace/?q%5B%5D=">Jobs.cz</a>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+                <img src="https://www.prace.cz/favicon.ico" alt="Prace.cz favicon" class="inline-block w-6 h-6 mr-2">
+                <a href="https://www.prace.cz/" target="_blank" class="text-blue-600 hover:underline" data-search-url="https://www.prace.cz/hledat/?searchForm%5Bprofs%5D=">Prace.cz</a>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+                <img src="https://www.startupjobs.com/favicon.ico" alt="StartupJobs favicon" class="inline-block w-6 h-6 mr-2">
+                <a href="https://www.startupjobs.cz/" target="_blank" class="text-blue-600 hover:underline" data-search-url="https://www.startupjobs.cz/nabidky?superinput=">StartupJobs</a>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Další užitečné weby pro hledání práce</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+                    <img src="https://junior.guru/favicon.ico" alt="Junior.guru favicon" class="inline-block w-6 h-6 mr-2">
+                    <a href="https://junior.guru/jobs/" target="_blank" class="text-blue-600 hover:underline">Junior.guru</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+                    <img src="https://www.uradprace.cz/favicon.ico" alt="Úřad práce favicon" class="inline-block w-6 h-6 mr-2">
+                    <a href="https://www.uradprace.cz/web/cz/volna-mista-v-cr" target="_blank" class="text-blue-600 hover:underline">Úřad práce ČR</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8 bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-4">Statistiky trhu práce k 31.07.2024</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                <li>Celkový počet uchazečů o zaměstnání: 283 011</li>
+                <li>Podíl nezaměstnaných osob: 3,8%</li>
+                <li>Počet volných pracovních míst: 262 026</li>
+                <li>Počet uchazečů na jedno volné místo: 1,1</li>
+                <li>Podíl nezaměstnaných mužů: 3,3%</li>
+                <li>Podíl nezaměstnaných žen: 4,2%</li>
+                <li>Míra nezaměstnanosti v EU27: 5,8%</li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Počítadlo dnů bez práce</h2>
+            <input type="date" id="unemployment-start-date" class="p-2 border rounded-lg">
+            <button id="calculate-days" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors ml-2">Spočítat dny</button>
+            <p id="days-unemployed" class="mt-4 text-lg font-bold"></p>
+        </div>
+    </div>
+
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const fieldSelect = document.getElementById('field-select');
+        const jobSites = document.querySelectorAll('#job-sites a[data-search-url]');
+        const searchHistory = document.getElementById('search-history');
+        const remoteBtn = document.getElementById('remote-btn');
+        const hybridBtn = document.getElementById('hybrid-btn');
+        const clearBtn = document.getElementById('clear-btn');
+        const motivationalQuote = document.getElementById('motivational-quote');
+        const unemploymentStartDate = document.getElementById('unemployment-start-date');
+        const calculateDaysBtn = document.getElementById('calculate-days');
+        const daysUnemployed = document.getElementById('days-unemployed');
+
+        // Motivační citáty
+        const quotes = [
+            "Každý nový den je nová příležitost najít skvělou práci!",
+            "Věř v sebe a úspěch přijde.",
+            "Tvá vysněná práce na tebe čeká, nepřestávej hledat!",
+            "Každý pohovor je krok blíž k tvému cíli.",
+            "Neúspěch je jen další příležitost začít znovu, tentokrát chytřeji.",
+            "Tvá budoucnost závisí na tom, co děláš dnes.",
+            "Překážky jsou ty děsivé věci, které vidíš, když odvrátíš zrak od svého cíle.",
+            "Úspěch je cesta, ne cíl. Každý den je nová příležitost.",
+            "Nejlepší způsob, jak předpovědět budoucnost, je vytvořit ji.",
+            "Tvá kariéra je maraton, ne sprint. Každý krok se počítá."
+        ];
+
+        // Zobrazení náhodného citátu
+        function displayRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            motivationalQuote.textContent = quotes[randomIndex];
+        }
+
+        displayRandomQuote();
+
+        // Load search history from localStorage
+        let history = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+        // Update search history display
+        function updateSearchHistory() {
+            searchHistory.innerHTML = '';
+            history.forEach(term => {
+                const li = document.createElement('li');
+                li.textContent = term;
+                li.classList.add('cursor-pointer', 'text-blue-600', 'hover:underline');
+                li.addEventListener('click', () => {
+                    searchInput.value = term;
+                    searchForm.dispatchEvent(new Event('submit'));
+                });
+                searchHistory.appendChild(li);
+            });
+        }
+
+        updateSearchHistory();
+
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                // Add to history
+                if (!history.includes(searchTerm)) {
+                    history.unshift(searchTerm);
+                    if (history.length > 5) history.pop();
+                    localStorage.setItem('searchHistory', JSON.stringify(history));
+                    updateSearchHistory();
+                }
+
+                jobSites.forEach(site => {
+                    const searchUrl = site.getAttribute('data-search-url');
+                    if (searchUrl) {
+                        window.open(searchUrl + encodeURIComponent(searchTerm), '_blank');
+                    }
+                });
+            } else {
+                alert('Prosím, zadejte klíčové slovo nebo vyberte obor pro vyhledávání.');
+            }
+        });
+
+        fieldSelect.addEventListener('change', function() {
+            if (this.value) {
+                searchInput.value = this.value;
+            } else {
+                searchInput.value = '';
+            }
+        });
+
+        function addToSearch(term) {
+            let currentSearch = searchInput.value.trim();
+            if (currentSearch.includes(term)) {
+                searchInput.value = currentSearch.replace(term, '').trim();
+            } else {
+                searchInput.value = (currentSearch + ' ' + term).trim();
+            }
+        }
+
+        remoteBtn.addEventListener('click', () => addToSearch('Remote'));
+        hybridBtn.addEventListener('click', () => addToSearch('Hybrid'));
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            fieldSelect.value = '';
+        });
+
+        calculateDaysBtn.addEventListener('click', () => {
+            const startDate = new Date(unemploymentStartDate.value);
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            daysUnemployed.textContent = `Jste bez práce ${diffDays} dní. Nevzdávejte to, vaše nová příležitost je za rohem!`;
+        });
+    </script>
+</body>
+</html>
